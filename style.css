@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ROOT */
+
+:root {
+   --primary-gradient-left: hsl(6, 100%, 80%);
+   --primary-gradient-right: hsl(335, 100%, 65%);
+   --neutral-pale-blue: hsl(243, 100%, 93%);
+   --neutral-grayish-blue: hsl(229, 7%, 55%);
+   --neutral-dark-blue: hsl(228, 56%, 26%);
+   --very-dark-blue: hsl(229, 57%, 11%);
+
+   --ff: "Raleway", sans-serif;
+   --fw-normal: 400;
+   --fw-bold: 700;
+}
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 14px;
+    
+    background-color: var(--very-dark-blue);
+
+}
+
+/* CONTAINER */
+
+.container {
+    background: url(./images/bg-mobile.png) no-repeat;
+    font-family: var(--ff);
+    width: 90%;
+    max-width: 27em;
+    margin: 0 auto;
+    padding: 8.5em 1.7em ;
+}
+
+/* FYLO HOME */
+
+.fylo-home {
+    background-color: var(--neutral-dark-blue);
+    width: 100%;
+    padding: 3em;
+    border-radius: 1em;   
+    border-top-right-radius: 7em;
+}
+
+.fylo-logo {
+    margin-bottom: 2.3em;
+}
+
+.navigation {
+    display: flex;
+    gap: 1em;
+}
+
+button {
+    background-color: var(--very-dark-blue);
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 0.7em;
+    border: none;
+    display: grid; 
+    place-items: center; 
+} 
+
+/* STORAGE */
+
+.storage {
+    background-color: var(--neutral-dark-blue);
+    width: 100%;
+    margin-top: 1.1em;
+    padding: 2.3em;
+    border-radius: 1em;  
+    position: relative; 
+}
+
+p {
+    color: var(--neutral-pale-blue);
+    text-align: center;
+}
+
+.remaining-storage {
+    font-weight: var(--fw-bold);
+}
+
+/* PROGRESS BAR */
+
+.meter { 
+    margin-top: 1.5em;
+    height: 1.3em;
+    position: relative;
+    background-color: var(--very-dark-blue);
+    border-radius: 2em;
+  }
+
+  .meter > span {
+    display: block;
+    height: 80%;
+    border-radius: 2em;
+    background-image: linear-gradient(to right, var(--primary-gradient-left), var(--primary-gradient-right));
+    translate: 0.2em 0.2em;
+    position: relative;  
+  }
+
+  .meter > span::after {
+    position: absolute;
+    left: 93.5%;
+    top: 10%;
+    content: "";
+    background-color: white;
+    width: 0.75em;
+    height: 0.75em;
+    border-radius: 50%;
+  }
+
+  .label {
+    margin-top: 1em;
+    margin-bottom: 1.2em;
+    font-size: 0.9em;
+    font-weight: var(--fw-bold);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* REMAINING STORAGE CONTAINER */
+
+  .remaining-storage-container {
+      background-color: white;
+      border-radius: 0.7em;
+      padding: 0.8em 2.4em;
+      position: absolute;
+      left: 50%;
+      translate: -50%;
+      display: flex;
+      gap: 0.8em;
+      justify-content: space-around;
+      align-items: center;  
+  }
+
+  .remaining-amount {
+    color: var(--very-dark-blue);
+    font-size: 2.8em;
+    font-weight: var(--fw-bold);
+  }
+
+  .remaining-counter {
+    color: var(--neutral-grayish-blue);
+    font-size: 0.9em;
+    font-weight: var(--fw-bold);
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+  }
+
+  /* MEDIA QUERIES */
+
+  @media screen and (min-width: 1400px) {
+    body {
+      height: 100vh;
+      background-image: url(./images/bg-desktop.png);
+      background-repeat: no-repeat;
+      background-position: bottom;
+    }
+
+    .container {
+      min-width: 69.5em;
+      height: auto;
+      padding-top: 20em;
+      background-image: none;
+      display: flex;
+      gap: 2.1em;
+      align-items:end;
+    }
+
+    /* FYLO HOME */
+
+    .fylo-home {
+        width: 38%;
+    }
+
+    /* STORAGE */
+
+    .storage {
+        width: 58.5%;
+        height: 11em;
+        
+    }
+
+    .storage > p {
+        text-align: left;
+    }
+
+    /* PROGRESS BAR */
+
+    .meter > span::after {
+      left: 96.5%;
+    }
+
+    /* REMAINING-STORAGE CONTAINER */
+
+    .remaining-storage-container {
+      left: 77%;
+      top: -30%;
+      /* position: relative; */
+    }
+
+    .remaining-storage-container::after { 
+        position: absolute;
+        content: "";
+        border-top: 2em solid transparent;
+        border-left: 2em solid transparent;
+        border-right: 2em solid transparent;
+        border-bottom: 2em solid white;
+        transform: rotate(45deg);
+        left: 84%;
+        top: 38%;
+    } 
+
+  }
+
+
+
+
